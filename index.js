@@ -16,7 +16,7 @@ import AbonoSemanalRoute from './routes/AbonoSemanalRoute.js';
 dotenv.config();
 
 const app = express();
-
+app.set('trust proxy', 1); 
 const sessionStore = SequelizeStore(session.Store);
 
 const store = new sessionStore({
@@ -28,7 +28,7 @@ const store = new sessionStore({
 // }) ();
 
 app.use(cors({
-  origin: 'http://localhost:4321', 
+  origin: 'https://www.siluetteplusjc.com', 
   credentials: true,
 }));
 
