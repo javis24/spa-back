@@ -26,6 +26,7 @@ const store = new SequelizeStore({ db });
 const allowlist = new Set([
   'https://siluetteplusjc.com',
   'https://www.siluetteplusjc.com',
+  'http://localhost:3000', 
 
 ]);
 
