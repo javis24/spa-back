@@ -28,7 +28,8 @@ const allowlist = new Set([
   'https://www.siluetteplusjc.com',
 
 ]);
-app.use(cors({
+
+const corsOptions = {
   origin(origin, cb) {
     if (!origin || allowlist.has(origin)) return cb(null, true);
     cb(new Error('Not allowed by CORS'));
@@ -36,8 +37,10 @@ app.use(cors({
   credentials: true,
   methods: ['GET','POST','PUT','PATCH','DELETE','OPTIONS'],
   allowedHeaders: ['Content-Type','Authorization'],
-}));
-app.options('*', cors()); 
+};
+
+app.use(cors(corsOptions));
+app.options('*', cors(corsOptions)); 
 
 app.use(express.json());
 
